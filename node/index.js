@@ -12,12 +12,7 @@ const config = {
 const mysql = require('mysql')
 const connection = mysql.createConnection(config)
 
-try {
-  connection.query(`DROP TABLE people`)
-  connection.query(`CREATE TABLE people (name varchar(255))`)
-} catch(err) {
-  connection.query(`CREATE TABLE people (name varchar(255))`)
-}
+connection.query(`CREATE TABLE people (name varchar(255))`)
 
 const sql = `INSERT INTO people(name) values ('Joao'), ('Pedro'), ('Maria')`;
 connection.query(sql);
